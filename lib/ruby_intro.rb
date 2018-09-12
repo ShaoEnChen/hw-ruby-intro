@@ -16,8 +16,8 @@ def max_2_sum arr
     return arr[0]
   end
   
-  first = -(2**(0.size * 8 -2))
-  second = -(2**(0.size * 8 -2))
+  first = Float.MIN
+  second = Float.MIN
   arr.each { |a|
     if a > first
       second = first
@@ -66,5 +66,40 @@ end
 # Part 3
 
 class BookInStock
-
+  def initialize bn, p
+    if bn == ''
+      raise ArgumentError.new('isbn cannot be empty')
+    end
+    if p <= 0
+      raise ArgumentError.new('price cannot be equal or less than 0')
+    end
+    @isbn = bn
+    @price = p
+  end
+  
+  def isbn
+    if @isbn == ''
+      raise ArgumentError.new('isbn cannot be empty')
+    end
+    return @isbn
+  end
+  
+  def isbn= bn
+    @isbn = bn
+  end
+  
+  def price
+    if @price <= 0
+      raise ArgumentError.new('price cannot be equal or less than 0')
+    end
+    return @price
+  end
+  
+  def price= p
+    @price = p
+  end
+  
+  def price_as_string
+    return '$' + "%0.2f" % @price
+  end
 end
