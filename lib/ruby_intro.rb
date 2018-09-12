@@ -1,4 +1,5 @@
 # When done, submit this entire file to the autograder.
+MIN = -(2**(0.size * 8 -2))
 
 # Part 1
 
@@ -16,8 +17,8 @@ def max_2_sum arr
     return arr[0]
   end
   
-  first =  -(2**(0.size * 8 -2))
-  second =  -(2**(0.size * 8 -2))
+  first = MIN
+  second = MIN
   arr.each { |a|
     if a > first
       second = first
