@@ -16,8 +16,8 @@ def max_2_sum arr
     return arr[0]
   end
   
-  first = Float.MIN
-  second = Float.MIN
+  first =  -(2**(0.size * 8 -2))
+  second =  -(2**(0.size * 8 -2))
   arr.each { |a|
     if a > first
       second = first
@@ -33,9 +33,9 @@ def sum_to_n? arr, n
   if arr.length == 0
     return false
   end
-  h = { 0 => true }
+  h = { 0 => false }
   arr.each { |a|
-    if h[n-a]
+    if h[n-a] == true
       return true
     end
     h[a] = true
